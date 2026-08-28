@@ -8,3 +8,4 @@ data/
 .pgsql-portable/
 .qdrant-portable/
 ref.docx
+CLAUDE.md

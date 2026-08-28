@@ -125,15 +125,31 @@ frontend/     vanilla HTML/CSS/JS SPA
 tests/        pytest suite + sample-file factories
 ```
 
-### How a question gets answered
+### Ingesting a file
 
+```mermaid
+flowchart LR
+    A["File uploaded"] --> B{"PDF / DOCX / PPTX / TXT<br/>or XLSX / CSV?"}
+    B -->|"document"| C["Parse into chunks<br/>page / section / slide<br/>recorded as it goes"]
+    B -->|"spreadsheet"| D["Infer column types<br/>from the real data"]
+    C --> E[("Qdrant<br/>chunk embeddings")]
+    D --> F[("Postgres<br/>one new table per sheet")]
+    D --> G[("Qdrant<br/>one sheet summary")]
 ```
-START -> load_session -> router
-                            |-- SEMANTIC   -> semantic search over document chunks
-                            |-- STRUCTURED -> pick relevant sheet(s) -> generate SQL
-                            |                                          -> validate -> run
-                            |-- HYBRID     -> find the relevant sheet via Qdrant first,
-                                               then do both of the above -> combine
+
+### Answering a question
+
+```mermaid
+flowchart TB
+    Q["Question"] --> R{"Router"}
+    R -->|"SEMANTIC"| S["Search chunks<br/>+ rerank"]
+    R -->|"STRUCTURED"| T["Pick the sheet"] --> U["Generate SQL"]
+    R -->|"HYBRID"| V["Find the sheet<br/>via Qdrant"] --> S
+    V --> T
+    U --> W["Validate:<br/>SELECT-only,<br/>session's own tables"]
+    W --> X[("Run it —<br/>read-only Postgres role")]
+    S --> Y["Answer<br/>+ citations"]
+    X --> Y
 ```
 
 The router's only job is to classify the question — it never answers

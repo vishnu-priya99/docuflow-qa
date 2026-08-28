@@ -1,0 +1,54 @@
+Design Review Meeting Notes - ECO-4471
+Date: 2024-04-18
+
+Attendees: R&D Lead (Priya), Quality Engineer (Arjun), Regulatory Affairs (Meera)
+
+Discussion: Reviewed the proposed engineering change to increase the luer
+connector wall thickness by 0.15mm to address the leakage complaints noted
+in the Q1 CAPA. Bench testing shows the change eliminates leakage up to
+40 psi, well above the 25 psi worst-case infusion pressure spec. Regulatory
+confirmed this is a minor change not requiring a new 510(k), but does
+require an updated risk assessment per ISO 14971.
+
+Action items: Arjun to complete the updated risk assessment by next Friday.
+Priya to release updated drawings to Manufacturing for pilot lot build.
+Meera to update the technical file and notify the EU authorized
+representative of the change.
+
+---
+
+Design Review Meeting Notes - ECO-4471 Follow-Up
+Date: 2024-05-02
+
+Attendees: R&D Lead (Priya), Quality Engineer (Arjun), Manufacturing Engineer (Farhan)
+
+Discussion: Pilot lot (50 units) of the revised luer connector completed
+first-article inspection with zero dimensional non-conformances. Burst
+pressure testing on the pilot lot averaged 41.2 psi, consistent with bench
+data. Farhan raised a concern that the thicker wall section increases
+injection molding cycle time by approximately 4 seconds per part; Priya
+will evaluate whether a minor gate redesign can recover the cycle time
+without affecting the wall thickness change.
+
+Action items: Farhan to run a full production-scale trial of 500 units.
+Arjun to close the updated risk assessment following pilot lot results.
+Priya to evaluate the gate redesign option and report back by May 16.
+
+---
+
+Design Review Meeting Notes - ECO-4471 Closure
+Date: 2024-05-30
+
+Attendees: R&D Lead (Priya), Quality Engineer (Arjun), Regulatory Affairs (Meera), Manufacturing Engineer (Farhan)
+
+Discussion: Production-scale trial of 500 units passed all acceptance
+criteria with zero leakage failures. The gate redesign recovered the
+cycle-time increase to within 1 second of baseline, which was accepted
+without further trials since it does not affect the part geometry or
+wall thickness. The updated risk assessment was approved by Arjun and
+concurred with by Meera. Change is approved for release into standard
+production beginning with the June 2024 lot.
+
+Action items: Farhan to update the manufacturing work instructions.
+Meera to confirm the technical file update was acknowledged by the EU
+authorized representative. ECO-4471 is closed as of this meeting.

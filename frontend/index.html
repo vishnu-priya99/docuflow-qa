@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document Q&amp;A</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Login screen -->
+  <div id="login-screen" class="login-screen">
+    <form id="login-form" class="login-card">
+      <h1>Document Q&amp;A</h1>
+      <p>Enter a user id to continue.</p>
+      <input id="login-user-id" type="text" placeholder="user_id" autocomplete="username" required />
+      <button type="submit">Continue</button>
+      <p id="login-error" class="error-text"></p>
+    </form>
+  </div>
+
+  <!-- Main app -->
+  <div id="app-screen" class="app-screen hidden">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span id="current-user" class="current-user"></span>
+        <button id="logout-btn" title="Log out">Log out</button>
+      </div>
+      <button id="new-chat-btn" class="new-chat-btn">+ New chat</button>
+      <div id="session-list" class="session-list"></div>
+    </aside>
+
+    <main class="main-area">
+      <div id="empty-state" class="empty-state">
+        <p>Select or create a chat to get started.</p>
+      </div>
+
+      <div id="chat-area" class="chat-area hidden">
+        <header class="chat-header">
+          <h2 id="session-title">Chat</h2>
+          <button id="delete-session-btn" class="danger-btn">Delete chat</button>
+        </header>
+
+        <section class="upload-section">
+          <label class="upload-label">
+            Upload files (PDF, DOCX, PPTX, TXT, XLSX, CSV)
+            <input id="file-input" type="file" multiple
+                   accept=".pdf,.docx,.pptx,.txt,.xlsx,.csv" />
+          </label>
+          <div id="file-list" class="file-list"></div>
+        </section>
+
+        <section id="messages" class="messages"></section>
+
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" type="text" placeholder="Ask a question about your files..." autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
